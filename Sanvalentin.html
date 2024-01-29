@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 de febrero jejej</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #tarjeta {
+            text-align: center;
+        }
+
+        #corazon {
+            width: 100px;
+            height: auto;
+        }
+
+        #invitacion {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="tarjeta">
+        <h1>¡Feliz San Valentín mi amorcito!</h1>
+        <img id="corazon" src="corazon.gif" alt="Corazón">
+        <audio autoplay>
+            <source src="cancion_de_amor.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <div id="invitacion">
+            <p>¿Quieres salir conmigo?</p>
+            <label for="aceptarCheckbox">Obvio q si</label>
+            <input type="checkbox" id="aceptarCheckbox">
+            <label for="rechazarCheckbox">Soy tonta</label>
+            <input type="checkbox" id="rechazarCheckbox">
+            <br>
+            <button onclick="verificarInvitacion()">Enviar </button>
+        </div>
+    </div>
+
+    <script>
+        function verificarInvitacion() {
+            var aceptarCheckbox = document.getElementById("aceptarCheckbox");
+            var rechazarCheckbox = document.getElementById("rechazarCheckbox");
+
+            if (aceptarCheckbox.checked) {
+                alert("Esooooo, t espero en bolas jeje teamo");
+            } else if (rechazarCheckbox.checked) {
+                alert("Mensa te equivocaste intenta denuevo.");
+                // Preguntar de nuevo
+                setTimeout(function() {
+                    verificarInvitacion();
+                }, 1000); // Esperar 1 segundo antes de volver a preguntar
+            } else {
+                alert("Por favor, elige Aceptar o Rechazar.");
+            }
+        }
+    </script>
+</body>
+</html>
