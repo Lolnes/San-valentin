@@ -33,7 +33,7 @@
     <div id="tarjeta">
         <h1>¡Feliz San Valentín mi amorcito!</h1>
         <img id="corazon" src="corazon.gif" alt="Corazón">
-        <audio autoplay>
+        <audio id="cancion">
             <source src="cancion_de_amor.mp3" type="audio/mp3">
             Tu navegador no soporta el elemento de audio.
         </audio>
@@ -45,10 +45,15 @@
             <input type="checkbox" id="rechazarCheckbox">
             <br>
             <button onclick="verificarInvitacion()">Enviar </button>
+            <button onclick="reproducirCancion()">Reproducir Canción</button>
         </div>
     </div>
 
     <script>
+        function reproducirCancion() {
+            var cancion = document.getElementById("cancion");
+            cancion.play();
+        }
         function verificarInvitacion() {
         var aceptarCheckbox = document.getElementById("aceptarCheckbox");
         var rechazarCheckbox = document.getElementById("rechazarCheckbox");
