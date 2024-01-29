@@ -50,21 +50,28 @@
 
     <script>
         function verificarInvitacion() {
-            var aceptarCheckbox = document.getElementById("aceptarCheckbox");
-            var rechazarCheckbox = document.getElementById("rechazarCheckbox");
+        var aceptarCheckbox = document.getElementById("aceptarCheckbox");
+        var rechazarCheckbox = document.getElementById("rechazarCheckbox");
 
-            if (aceptarCheckbox.checked) {
-                alert("Esooooo, t espero en bolas jeje teamo");
-            } else if (rechazarCheckbox.checked) {
-                alert("Mensa te equivocaste intenta denuevo.");
-                // Preguntar de nuevo
-                setTimeout(function() {
-                    verificarInvitacion();
-                }, 5000); // Esperar 2 segundo antes de volver a preguntar
-            } else {
-                alert("Por favor, elige Aceptar o Rechazar.");
-            }
+        if (aceptarCheckbox.checked && !rechazarCheckbox.checked) {
+            alert("Esooooo, t espero en bolas jeje teamo");
+            // Desmarcar las casillas
+            aceptarCheckbox.checked = false;
+            rechazarCheckbox.checked = false;
+        } else if (rechazarCheckbox.checked && !aceptarCheckbox.checked) {
+            alert("Mensa te equivocaste intenta denuevo.");
+            // Desmarcar las casillas
+            aceptarCheckbox.checked = false;
+            rechazarCheckbox.checked = false;
+            // Preguntar de nuevo después de 5 segundos
+            setTimeout(function() {
+                verificarInvitacion();
+            }, 5000); // Esperar 5 segundos antes de volver a preguntar
+        } else {
+            alert("Por favor, elige Aceptar o Rechazar.");
         }
+    
+
     </script>
 </body>
 </html>
